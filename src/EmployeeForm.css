@@ -45,3 +45,18 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.employee-list {
+  width: 60%;
+  margin: 20px auto;
+}
+
+.employee-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.employee-list li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}

@@ -19,23 +19,33 @@ class EmployeeForm extends React.Component {
     });
   };
 
-handleSubmit = (event) => {
-  event.preventDefault();
+  handleSubmit = (event) => {
+    event.preventDefault();
 
-  this.props.addEmployee(this.state);
+    if (
+      !this.state.name ||
+      !this.state.email ||
+      !this.state.title ||
+      !this.state.department
+    ) {
+      alert('Please complete all fields.');
+      return;
+    }
 
-  this.setState({
-    name: '',
-    email: '',
-    title: '',
-    department: ''
-  });
-};
+    this.props.addEmployee(this.state);
+
+    this.setState({
+      name: '',
+      email: '',
+      title: '',
+      department: ''
+    });
+  };
 
   render() {
     return (
       <div className="employee-form-container">
-        <h1>Add Employee</h1>
+        <h2>Add Employee</h2>
 
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -45,6 +55,7 @@ handleSubmit = (event) => {
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
+              placeholder="Enter employee name"
             />
           </div>
 
@@ -55,6 +66,7 @@ handleSubmit = (event) => {
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
+              placeholder="Enter employee email"
             />
           </div>
 
@@ -65,6 +77,7 @@ handleSubmit = (event) => {
               name="title"
               value={this.state.title}
               onChange={this.handleChange}
+              placeholder="Enter job title"
             />
           </div>
 
@@ -75,6 +88,7 @@ handleSubmit = (event) => {
               name="department"
               value={this.state.department}
               onChange={this.handleChange}
+              placeholder="Enter department"
             />
           </div>
 

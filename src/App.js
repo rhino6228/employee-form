@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import EmployeeForm from './components/EmployeeForm';
 import EmployeeList from './components/EmployeeList';
+import './EmployeeForm.css';
 
 function App() {
-
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ function App() {
   }, []);
 
   const addEmployee = (employee) => {
-
     const newEmployee = {
       ...employee,
       EmployeeId: Date.now()
@@ -32,6 +31,11 @@ function App() {
 
   return (
     <div className="App">
+      <header className="app-header">
+        <h1>Employee Management System</h1>
+        <p>INT 304 Final Project</p>
+      </header>
+
       <EmployeeForm addEmployee={addEmployee} />
       <EmployeeList employees={employees} />
     </div>
